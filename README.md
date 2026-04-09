@@ -1,4 +1,4 @@
-# 🚀 TWA Factory v1.0
+# 🚀 TWA Factory
 
 A high-speed, terminal-based Android TWA (Trusted Web Activity) APK builder. This tool automates the `bubblewrap` CLI to generate signed APKs from any URL with zero interactive prompts during the build process.
 
