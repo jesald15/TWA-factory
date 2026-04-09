@@ -1,6 +1,6 @@
 # 🚀 TWA Factory v1.0
 
-A high-speed, terminal-based Android TWA (Trusted Web Activity) APK builder designed for Arch Linux. This tool automates the `bubblewrap` CLI to generate signed APKs from any URL with zero interactive prompts during the build process.
+A high-speed, terminal-based Android TWA (Trusted Web Activity) APK builder. This tool automates the `bubblewrap` CLI to generate signed APKs from any URL with zero interactive prompts during the build process.
 
 ## 🛠️ System Requirements
 - **Tools**: `bubblewrap`, `jdk-openjdk`, `android-sdk`
@@ -18,9 +18,9 @@ Before running the factory, ensure the following are ready in the root directory
 ## 🚀 Usage
 
 Run the interactive wizard:
-```bash
+```
 python factor.py
-
+```
 The wizard will ask for:
 
 App Name: The display name of your app.
@@ -34,12 +34,14 @@ Once the build is complete, your signed APK (app-release-signed.apk) will be in 
 
 Install on device:
 
-Bash
+```
 # For a fresh install
 adb install app-release-signed.apk
 
 # To update an existing version
 adb install -r app-release-signed.apk
+
+```
 🧹 Features
 Zero-Footprint: Automatically wipes app/ and temporary metadata before every build to prevent "checksum" or "version" prompts.
 
