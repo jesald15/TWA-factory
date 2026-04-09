@@ -1,13 +1,5 @@
 # 🚀 TWA Factory v1.0
 
-  _______       _____       _________   ________________  ______  __
- /_  __/ |     / /   |     / ____/   | / ____/_  __/ __ \/ __ \ \/ /
-  / /  | | /| / / /| |    / /_  / /| |/ /     / / / / / / /_/ /\  / 
- / /   | |/ |/ / ___ |   / __/ / ___ / /___  / / / /_/ / _, _/ / /  
-/_/    |__/|__/_/  |_|  /_/   /_/  |_\____/ /_/  \____/_/ |_| /_/   
-                                                                    
-
-
 A high-speed, terminal-based Android TWA (Trusted Web Activity) APK builder designed for Arch Linux. This tool automates the `bubblewrap` CLI to generate signed APKs from any URL with zero interactive prompts during the build process.
 
 ## 🛠️ System Requirements
@@ -55,12 +47,3 @@ SSL Bypass: Includes a built-in fix for local issuer certificate errors often fo
 
 Automated Manifesting: Generates the twa-manifest.json dynamically based on your input.
 
----
-
-### Pro-Tip for your GitHub Repo:
-If you want to add that **ASCII Heading** specifically to the top of the README, you can wrap it in a code block like this:
-
-```text
-```text
-
-s
