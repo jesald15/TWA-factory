@@ -1,0 +1,68 @@
+This is a great idea. Having a "Cheat Sheet" on your Arch machine will save you from hunting through terminal history every time you want to spin up a new app.
+
+Here is the exact, step-by-step workflow for your `guide.txt`. I’ve included the **Arch-specific SDK fixes** we discovered so you don't get stuck again.
+
+---
+
+## **Bubblewrap App Factory Guide**
+
+### **Step 1: The Workspace Setup**
+1. Create a new folder for the app:
+   ```bash
+   mkdir -p ~/Documents/Projects/NewApp && cd $_
+   ```
+2. Put your `icon.png` (512x512) in this folder.
+3. Ensure your `android.keystore` is accessible (keep it in a central location).
+
+### **Step 2: Start the Asset Server**
+In one terminal tab, start the server to feed the CLI your icons:
+```bash
+python3 -m http.server 8081
+```
+
+### **Step 3: Initialize the Project**
+In a second terminal tab, run the init command:
+```bash
+bubblewrap init --manifest=http://127.0.0.1:8081/manifest.json
+```
+*Follow the prompts. Use your central `android.keystore` path when asked.*
+
+### **Step 4: The "Minimalist" Configuration**
+Open `twa-manifest.json` and apply your UI tweaks:
+* **Background:** `"backgroundColor": "#000000"` (For OLED black)
+* **Status Bar:** `"themeColor": "#000000"`
+* **Hide UI:** `"display": "fullscreen"` and `"displayOverride": ["fullscreen", "minimal-ui"]`
+* **Fade:** `"splashScreenFadeOutDuration": 500`
+
+### **Step 5: The Build (The "Arch Fix" Way)**
+To avoid the SDK conflict and build the APK, run this exact sequence:
+```bash
+# Force the correct SDK path
+export ANDROID_SDK_ROOT=$HOME/.bubblewrap/android_sdk
+
+# Update and Build
+bubblewrap update
+bubblewrap build --skipPwaValidation
+```
+
+### **Step 6: Deploy to Android 11**
+Connect via USB and run:
+```bash
+adb install -r app-release-signed.apk
+```
+
+---
+
+### **Maintenance Commands**
+* **Kill hung server:** `fuser -k 8081/tcp`
+* **Clean build cache:** `rm -rf app/build .gradle`
+* **Check SDK path:** `echo $ANDROID_HOME`
+
+---
+
+**Summary for your notes:**
+* Always run the **Export** command before building.
+* Always keep the **Python server** running during `init` or `update`.
+* Use the **`-r`** flag with `adb` to overwrite old versions.
+
+Does this cover everything you need for the text file, or should I add a section on how to handle the `manifest.json` for different apps?

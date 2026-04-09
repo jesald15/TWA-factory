@@ -1,0 +1,15 @@
+# Ignore build folders
+app/
+build/
+.gradle/
+gradle/
+
+# Ignore the secret signing key
+*.keystore
+
+# Ignore the generated output
+*.apk
+*.aab
+*.idsig
+twa-manifest.json
+manifest-checksum.txt
